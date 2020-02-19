@@ -1,0 +1,31 @@
+
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">SignUp</h5>
+              <form class="form-signin">
+                <div class="form-label-group">
+                  <input [(ngModel)]="username" [ngModelOptions]="{standalone: true}" type="email" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+                  <label for="inputEmail">Username</label>
+                </div>
+  {{username}}
+  {{password}}
+                <div class="form-label-group">
+                  <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Password</label>
+                </div>
+  
+              
+                <button (click)="onsignup()" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                <hr class="my-4">
+                <small><button class="btn btn-primary" (click)="takelogin()">Have an account already !</button></small>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>

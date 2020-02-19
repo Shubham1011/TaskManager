@@ -1,0 +1,77 @@
+<div class="d-flex flex-row justify-content-center" id="main">
+    <div class="d-flex flex-column justify-content-start" id="submain">
+        <div class="p-2"><h1>Topic</h1><hr class="my-4"></div>
+        <button class="btn btn-success" (click)="addme()">Add Topic</button>
+        <div *ngIf="aretheretopic">
+            <br>
+<h4>{{tellme}}</h4>
+        </div>
+        <form *ngIf="addtopic">
+            <div class="form-group" >
+              <label for="exampleInputEmail1">Title</label>
+              <input [(ngModel)]="title" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your title with anyone else.</small>
+            </div>
+        
+            <button type="submit" (click)="reallyadd(title)" class="btn btn-primary">Submit</button>
+          </form>
+          <form *ngIf="updatetopic">
+            <div class="form-group" >
+              <label for="exampleInputEmail1">Title</label>
+              <input [(ngModel)]="updatetitle" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your title with anyone else.</small>
+            </div>
+        
+            <button type="submit" (click)="reallyupdate()" class="btn btn-primary">Submit</button>
+          </form>
+        <hr>
+        <div *ngFor="let a of taskarray" >
+            <div id="allitem">
+           <div id="item" (click)="showtopic(a._id)">
+            <h6>Title:{{a.title}}</h6>
+            {{a.complete}}
+        </div><hr class="my-1">
+            <button class="btn btn-success" (click)="addtopics(a._id)">Add Task</button>{{" "}}
+            <button class="btn btn-primary" (click)="updateetopic(a._id,a.title)">Update Task</button>{{" "}}
+            <button class="btn btn-danger" (click)="deltopic(a._id)">Delete Task</button>
+        </div>
+        <br>
+        </div>
+        
+        
+       
+    </div>
+    <div class="d-flex flex-column justify-content-start" id="submain">
+        <div class="p-2"><h1>Tasks</h1><hr class="my-4"></div>
+        <hr>
+   
+        <div *ngIf="showselect">
+            <h4>Select a Topic to see its tasks</h4>
+        </div>
+        <div *ngIf="shownotask">
+            <h4>No task for this topic !! Get started by adding some</h4>
+        </div>
+        <div  *ngIf="updatetask">
+            <input [(ngModel)]="updatetitle" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+       <br>
+            <button class="btn btn-success" (click)="reallyupdatetask()">Update</button>
+        </div>
+        <div *ngFor="let a of topicarray">
+          <div id="itemtask" [ngClass]="{'complete': a.complete}">
+            <h6>{{a.title}}</h6>
+            <hr class="my-1"> 
+            <button class="btn btn-primary btn-sm" (click)="updateetask(a._id,a.title)">Update Task</button>{{" "}}
+            <button class="btn btn-danger btn-sm" (click)="deltask(a._id)">Delete Task</button>
+        </div>
+    
+        </div>
+        
+        <div  *ngIf="addt">
+        <input [(ngModel)]="title" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
+    <button class="btn btn-success" (click)="addmeto()">Add</button>
+    </div>
+    </div>
+ 
+    </div>
+   
+ 

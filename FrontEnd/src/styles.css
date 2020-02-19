@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+body 
+{
+    background-color: aqua;
+}
+
+#main{
+    padding-top: 100px;
+    border-width: 1;
+    border-color: black;
+
+}
+
+#submain{
+    padding: 30px;
+    background-color: whitesmoke;
+    margin: 20px;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 5px;
+    width: 50%;
+}
+#allitem{
+    background-color:aqua;
+    border-radius: 7px;
+    text-align: center;
+}
+
+#item{
+    border-radius: 7px;
+    text-align: center;
+    border-color: coral;
+    background-color:aqua
+}
+
+#itemtask{
+    border-radius: 7px;
+    text-align: center;
+    border-color: coral;
+    background-color:aqua;
+    margin-bottom: 8px;
+}
+
+#item:hover{
+    cursor: pointer;
+    height: 50px;
+}
+
+#item::selection{
+    background-color: saddlebrown;
+}
+
+.isactive{
+    background-color: saddlebrown;
+}
+
+.complete{
+   color:green;
+   -webkit-text-stroke: 1px rgb(77, 34, 34);
+}
